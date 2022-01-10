@@ -10,14 +10,18 @@
             {{ if (default true .enabled) }}
             <figure class="site-avatar">
                 {{ if not .local }}
+                    <a href="{{ .Site.BaseURL | relLangURL }}">
                     <img src="{{ .src }}" width="300" height="300" class="site-logo" loading="lazy" alt="Avatar">
+                    </a>
                 {{ else }}
                     {{ $avatar := resources.Get (.src) }}
-                    
+
                     {{ if $avatar }}
                         {{ $avatarResized := $avatar.Resize "300x" }}
+                        <a href="{{ .Site.BaseURL | relLangURL }}">
                         <img src="{{ $avatarResized.RelPermalink }}" width="{{ $avatarResized.Width }}"
                             height="{{ $avatarResized.Height }}" class="site-logo" loading="lazy" alt="Avatar">
+                        </a>
                     {{ else }}
                         {{ errorf "Failed loading avatar from %q" . }}
                     {{ end }}
@@ -29,7 +33,7 @@
             </figure>
             {{ end }}
         {{ end }}
-        
+
         <h1 class="site-name"><a href="{{ .Site.BaseURL | relLangURL }}">{{ .Site.Title }}</a></h1>
         <h2 class="site-description">{{ .Site.Params.sidebar.subtitle }}</h2>
 
@@ -37,7 +41,7 @@
             <ol class="social-menu">
                 {{ range . }}
                     <li>
-                        <a 
+                        <a
                             href='{{ .URL }}'
                             {{ if eq (default true .Params.newTab) true }}target="_blank"{{ end }}
                             {{ with .Name }}title="{{ . }}"{{ end }}
