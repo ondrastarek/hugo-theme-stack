@@ -1,0 +1,70 @@
+toggleMenu:
+    other: Toggle Menu
+
+darkMode:
+    other: Tmavý režim
+
+list:
+    page:
+        one: "{{ .Count }} stránka"
+        other: "{{ .Count }} stránky"
+
+    section:
+        other: Sekce
+
+    subsection:
+        one: podsekce
+        other: podsekce
+
+article:
+    back:
+        other: Zpět
+
+    tableOfContents:
+        other: Obsah
+
+    relatedContents:
+        other: Související obsah
+
+    lastUpdatedOn:
+        other: Naposledy změněno
+
+    readingTime:
+        one: "{{ .Count }} minut čtení"
+        other: "{{ .Count }} minut čtení"
+
+notFound:
+    title:
+        other: Nenalezeno
+
+    subtitle:
+        other: Stránka neexistuje!
+
+widget:
+    archives:
+        title:
+            other: Archiv
+
+        more:
+            other: Další
+
+    tagCloud:
+        title:
+            other: Tagy
+
+search:
+    title:
+        other: Hledání
+
+    placeholder:
+        other: Napiš něco...
+
+    resultTitle:
+        other: "#PAGES_COUNT stránek (#TIME_SECONDS vteřin)"
+
+footer:
+    builtWith:
+        other: Vytvořeno pomocí {{ .Generator }}
+
+    designedBy:
+        other: Téma {{ .Theme }} nadesignoval {{ .DesignedBy }} naimplementoval {{ .ImplementedBy }}
