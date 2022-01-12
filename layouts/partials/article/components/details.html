@@ -27,7 +27,7 @@
             <div>
                 {{ partial "helper/icon" "date" }}
                 <time class="article-time--published">
-                    {{- time.Format (or .Site.Params.dateFormat.published ":date_long") -}}
+                    {{ .Date | time.Format ":date_long" }}
                 </time>
             </div>
         {{ end }}
