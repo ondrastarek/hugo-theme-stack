@@ -7,8 +7,8 @@ footer.site-footer {
     &:before {
         content: "";
         display: block;
-        height: 2px;
-        width: 500px;
+        height: 3px;
+        width: 50px;
         background: var(--body-text-color);
         margin-bottom: 20px;
     }
