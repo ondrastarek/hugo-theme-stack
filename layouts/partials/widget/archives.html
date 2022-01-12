@@ -11,7 +11,7 @@
         {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
         {{ $filtered := ($pages | intersect $notHidden) }}
         {{ $archives := $filtered.GroupByDate "2006" }}
-        
+
         <div class="widget-archive--list">
             {{ range $index, $item := first (add .Site.Params.widgets.archives.limit 1) ($archives) }}
                 {{- $id := lower (replace $item.Key " " "-") -}}
@@ -23,7 +23,7 @@
                             <span class="year">{{ .Key }}</span>
                             <span class="count">{{ len $item.Pages }}</span>
                         {{ end }}
-                    </a> 
+                    </a>
                 </div>
             {{ end }}
         </div>

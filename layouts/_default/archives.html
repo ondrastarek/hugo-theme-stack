@@ -3,7 +3,7 @@
     {{- $taxonomy := $.Site.GetPage "taxonomyTerm" "categories" -}}
     {{- $terms := $taxonomy.Pages -}}
     {{ if $terms }}
-    <h2 class="section-title">{{ $taxonomy.Title }}</h2>
+    <h2 class="section-title">Kategorie</h2>
     <div class="subsection-list">
         <div class="article-list--tile">
             {{ range $terms }}
