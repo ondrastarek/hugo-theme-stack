@@ -16,7 +16,7 @@
     padding: 30px 0 15px 0;
     max-width: none;
 
-    --sidebar-avatar-size: 120px;
+    --sidebar-avatar-size: 170px;
     --sidebar-element-separation: 20px;
 
     @include respond(md) {
@@ -27,7 +27,7 @@
     }
 
     @include respond(2xl) {
-        --sidebar-avatar-size: 140px;
+        --sidebar-avatar-size: 170px;
         --sidebar-element-separation: 25px;
     }
 
