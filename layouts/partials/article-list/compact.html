@@ -13,7 +13,11 @@
 
         {{- $image := partialCached "helper/image" (dict "Context" . "Type" "articleList") .RelPermalink "articleList" -}}
         {{ if $image.exists }}
-            <div class="article-image">
+            {{ if not .Params.invitation }}
+                <div class="article-image">
+            {{ else }}
+                <div class="article-image-invitation">
+            {{ end }}
                 {{ if $image.resource }}
                     {{- $Permalink := $image.resource.RelPermalink -}}
                     {{- $Width := $image.resource.Width -}}

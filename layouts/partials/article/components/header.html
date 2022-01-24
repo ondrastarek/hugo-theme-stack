@@ -1,14 +1,20 @@
 <header class="article-header">
     {{- $image := partialCached "helper/image" (dict "Context" . "Type" "article") .RelPermalink "article" -}}
     {{ if $image.exists }}
+
+    {{ if not .Params.invitation }}
         <div class="article-image">
+    {{ else }}
+        <div class="article-image-invitation">
+    {{ end }}
+
             <a href="{{ .RelPermalink }}">
                 {{ if $image.resource }}
                     {{- $Permalink := $image.resource.RelPermalink -}}
                     {{- $Width := $image.resource.Width -}}
                     {{- $Height := $image.resource.Height -}}
                     {{- $Srcset := "" -}}
-                    
+
                     {{- if (default true .Page.Site.Params.imageProcessing.cover.enabled) -}}
                         {{- $thumbnail := $image.resource.Resize "800x" -}}
                         {{- $thumbnailRetina := $image.resource.Resize "1600x" -}}
@@ -20,8 +26,8 @@
 
                     <img src="{{ $Permalink }}"
                         {{ with $Srcset }}srcset="{{ . }}"{{ end }}
-                        width="{{ $Width }}" 
-                        height="{{ $Height }}" 
+                        width="{{ $Width }}"
+                        height="{{ $Height }}"
                         loading="lazy"
                         alt="Featured image of post {{ .Title }}" />
                 {{ else }}

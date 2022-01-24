@@ -1,9 +1,13 @@
 {{ $image := partialCached "helper/image" (dict "Context" .context "Type" .Type) .context.RelPermalink .Type }}
 <article class="{{ if $image.exists }}has-image{{ end }}">
     <a href="{{ .context.RelPermalink }}">
-        
+
         {{ if $image.exists }}
-            <div class="article-image">
+            {{ if not .Params.invitation }}
+                <div class="article-image">
+            {{ else }}
+                <div class="article-image-invitation">
+            {{ end }}
                 {{ if $image.resource }}
                     {{- $imageRaw := $image.resource | resources.Fingerprint "md5" -}}
                     {{- $Permalink := $imageRaw.RelPermalink -}}
@@ -16,10 +20,10 @@
                         {{- $Width = $thumbnail.Width -}}
                         {{- $Height = $thumbnail.Height -}}
                     {{- end -}}
-                    
-                    <img src="{{ $Permalink }}" 
-                        width="{{ $Width }}" 
-                        height="{{ $Height }}" 
+
+                    <img src="{{ $Permalink }}"
+                        width="{{ $Width }}"
+                        height="{{ $Height }}"
                         loading="lazy"
                         alt="Featured image of post {{ .context.Title }}"
                         {{ with .context.Slug }}data-key="{{ . }}" {{ end }}

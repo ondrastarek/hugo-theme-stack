@@ -1,45 +1,47 @@
-<div class="article-details">
-    {{ if .Params.categories }}
-    <header class="article-category">
-        {{ range (.GetTerms "categories") }}
-            <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
-                {{ .LinkTitle }}
-            </a>
-        {{ end }}
-    </header>
-    {{ end }}
+{{ if not .Params.invitation }}
+  <div class="article-details">
+      {{ if .Params.categories }}
+      <header class="article-category">
+          {{ range (.GetTerms "categories") }}
+              <a href="{{ .RelPermalink }}" {{ with .Params.style }}style="background-color: {{ .background }}; color: {{ .color }};"{{ end }}>
+                  {{ .LinkTitle }}
+              </a>
+          {{ end }}
+      </header>
+      {{ end }}
 
-    <h2 class="article-title">
-        <a href="{{ .RelPermalink }}">
-            {{- .Title -}}
-        </a>
-    </h2>
+      <h2 class="article-title">
+          <a href="{{ .RelPermalink }}">
+              {{- .Title -}}
+          </a>
+      </h2>
 
-    {{ with .Params.description }}
-    <h3 class="article-subtitle">
-        {{ . }}
-    </h3>
-    {{ end }}
+      {{ with .Params.description }}
+      <h3 class="article-subtitle">
+          {{ . }}
+      </h3>
+      {{ end }}
 
-    {{ if or (not .Date.IsZero) (.Site.Params.article.readingTime) }}
-    <footer class="article-time">
-        {{ if not .Date.IsZero }}
-            <div>
-                {{ partial "helper/icon" "date" }}
-                <time class="article-time--published">
-                    {{ .Date | time.Format ":date_long" }}
-                </time>
-            </div>
-        {{ end }}
+      {{ if or (not .Date.IsZero) (.Site.Params.article.readingTime) }}
+      <footer class="article-time">
+          {{ if not .Date.IsZero }}
+              <div>
+                  {{ partial "helper/icon" "date" }}
+                  <time class="article-time--published">
+                      {{ .Date | time.Format ":date_long" }}
+                  </time>
+              </div>
+          {{ end }}
 
-        {{ if .Site.Params.article.readingTime }}
-            <div>
-                {{ partial "helper/icon" "clock" }}
-                <time class="article-time--reading">
-                    {{ T "article.readingTime" .ReadingTime }}
-                </time>
-            </div>
-        {{ end }}
-    </footer>
-    {{ end }}
-</div>
+          {{ if .Site.Params.article.readingTime }}
+              <div>
+                  {{ partial "helper/icon" "clock" }}
+                  <time class="article-time--reading">
+                      {{ T "article.readingTime" .ReadingTime }}
+                  </time>
+              </div>
+          {{ end }}
+      </footer>
+      {{ end }}
+    </div>
+{{ end }}
