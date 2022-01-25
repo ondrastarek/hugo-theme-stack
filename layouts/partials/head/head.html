@@ -1,5 +1,6 @@
 <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='keywords' content="Tábor, tábořiště, železnice, boro, boro.cz, dětský tábor, letní tábor, letni tabor, příroda, dětské, rekreace, švp">
 
 {{- $description := partialCached "data/description" . .RelPermalink -}}
 <meta name='description' content='{{ $description }}'>
@@ -7,6 +8,8 @@
 <title>{{ $title }}</title>
 
 <link rel='canonical' href='{{ .Permalink }}'>
+
+<link rel="stylesheet" href="/css/cookie.css" />
 
 {{- partial "head/style.html" . -}}
 {{- partial "head/script.html" . -}}
