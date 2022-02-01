@@ -52,6 +52,10 @@ widget:
         title:
             other: Tagy
 
+    countdown:
+        title:
+            other: Odpočet do tábora
+
 search:
     title:
         other: Hledání
