@@ -2,10 +2,13 @@
 {{- if $query -}}
     {{- $archivesPage := index $query 0 -}}
     <section class="widget archives">
-        <div class="widget-icon">
-            {{ partial "helper/icon" "infinity" }}
+
+        <div class="widget-title">
+          <div class="widget-icon">
+              {{ partial "helper/icon" "infinity" }}
+          </div>
+          <h2 class="section-title">{{ T "widget.archives.title" }}</h2>
         </div>
-        <h2 class="widget-title section-title">{{ T "widget.archives.title" }}</h2>
 
         {{ $pages := where .Site.RegularPages "Type" "in" .Site.Params.mainSections }}
         {{ $notHidden := where .Site.RegularPages "Params.hidden" "!=" true }}
